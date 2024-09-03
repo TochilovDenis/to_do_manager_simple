@@ -10,7 +10,7 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
 
 def delete_task_from_list(list_of_tasks: list[str]) -> None:
     """
-    Delete task from list of tasks
+    Удаление задачи из списка задач
     :param list_of_tasks: list of tasks to delete from
     :return: Nothing
     """
