@@ -7,6 +7,15 @@ def delete_task_from_list(tasks):
     index_task = int(input("Введите список по номеру для удаления задачи:\n"))
     tasks.remove(tasks[index_task])
 
+
+def print_list_of_task(list_to_print):
+    if list_to_print:
+        for i, item in enumerate(list_to_print):
+            print(f"[{i}]: {item}")
+    else:
+        print("Список задач пуст")
+
+
 def main() -> None:
     tasks = []
     while True:
@@ -23,8 +32,7 @@ def main() -> None:
         elif enter == '2':
             delete_task_from_list(tasks)
         elif enter == '3':
-            for i, item in enumerate(tasks):
-                print(f"[{i}]: {item}")
+           print_list_of_task(tasks)
         else:
             print("Вы вели что-то не так. Еще разок.")
 
