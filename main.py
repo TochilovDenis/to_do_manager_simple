@@ -1,4 +1,6 @@
-from operator import index
+def add_task_to_list(tasks):
+    enter_task = input("Введите описание задачи:\n")
+    tasks.append(enter_task)
 
 
 def main() -> None:
@@ -13,8 +15,7 @@ def main() -> None:
             print("Программа завершена.")
             break
         elif enter == '1':
-            enter_task = input("Введите описание задачи:\n")
-            tasks.append(enter_task)
+           add_task_to_list(tasks)
         elif enter == '2':
             index_task = int(input("Введите список по номеру для удаления задачи:\n"))
             tasks.remove(tasks[index_task])
