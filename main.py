@@ -1,3 +1,4 @@
+
 def main() -> None:
     tasks = []
     while True:
@@ -12,6 +13,9 @@ def main() -> None:
         elif enter == '1':
             enter_task = input("Введите описание задачи:\n")
             tasks.append(enter_task)
+        elif enter == '3':
+            for i, item in enumerate(tasks):
+                print(f"[{i}]: {item}")
         else:
             print("Вы вели что-то не так. Еще разок.")
 
