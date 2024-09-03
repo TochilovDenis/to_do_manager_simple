@@ -1,11 +1,4 @@
-def add_task_to_list(list_of_tasks: list[str]) -> None:
-    """
-    Добавить задачу в список задач
-    :param list_of_tasks: list of tasks to add a task to
-    :return: Nothing
-    """
-    enter_task = input("Введите описание задачи:\n")
-    list_of_tasks.append(enter_task)
+
 
 
 def delete_task_from_list(tasks: list[str]) -> None:
