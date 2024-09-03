@@ -1,3 +1,5 @@
+from operator import index
+
 
 def main() -> None:
     tasks = []
@@ -13,6 +15,9 @@ def main() -> None:
         elif enter == '1':
             enter_task = input("Введите описание задачи:\n")
             tasks.append(enter_task)
+        elif enter == '2':
+            index_task = int(input("Введите список по номеру для удаления задачи:\n"))
+            tasks.remove(tasks[index_task])
         elif enter == '3':
             for i, item in enumerate(tasks):
                 print(f"[{i}]: {item}")
