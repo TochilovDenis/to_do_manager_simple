@@ -43,11 +43,11 @@ def main() -> None:
             print("Программа завершена.")
             break
         elif enter == '1':
-           add_task_to_list(tasks)
+            add_task_to_list(tasks)
         elif enter == '2':
             delete_task_from_list(tasks)
         elif enter == '3':
-           print_list_of_task(tasks)
+            print_list_of_task(tasks)
         else:
             print("Вы вели что-то не так. Еще разок.")
 
