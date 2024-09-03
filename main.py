@@ -1,4 +1,5 @@
 def main() -> None:
+    tasks = []
     while True:
         print("1. Добавить задачу\n"
               "2. Удалить задачу\n"
@@ -8,6 +9,9 @@ def main() -> None:
         if enter == '4':
             print("Программа завершена.")
             break
+        elif enter == '1':
+            enter_task = input("Введите описание задачи:\n")
+            tasks.append(enter_task)
         else:
             print("Вы вели что-то не так. Еще разок.")
 
