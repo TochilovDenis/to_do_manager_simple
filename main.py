@@ -3,6 +3,10 @@ def add_task_to_list(tasks):
     tasks.append(enter_task)
 
 
+def delete_task_from_list(tasks):
+    index_task = int(input("Введите список по номеру для удаления задачи:\n"))
+    tasks.remove(tasks[index_task])
+
 def main() -> None:
     tasks = []
     while True:
@@ -17,8 +21,7 @@ def main() -> None:
         elif enter == '1':
            add_task_to_list(tasks)
         elif enter == '2':
-            index_task = int(input("Введите список по номеру для удаления задачи:\n"))
-            tasks.remove(tasks[index_task])
+            delete_task_from_list(tasks)
         elif enter == '3':
             for i, item in enumerate(tasks):
                 print(f"[{i}]: {item}")
