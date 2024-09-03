@@ -19,6 +19,11 @@ def delete_task_from_list(list_of_tasks: list[str]) -> None:
 
 
 def print_list_of_task(list_to_print: list[str]) -> None:
+    """
+    Функция для вывода на печать списка задач
+    :param list_to_print: list of tasks to print
+    :return: Nothing
+    """
     if list_to_print:
         for i, item in enumerate(list_to_print):
             print(f"[{i}]: {item}")
