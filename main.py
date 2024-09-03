@@ -1,14 +1,14 @@
-def add_task_to_list(tasks):
+def add_task_to_list(tasks: list[str]):
     enter_task = input("Введите описание задачи:\n")
     tasks.append(enter_task)
 
 
-def delete_task_from_list(tasks):
+def delete_task_from_list(tasks: list[str]):
     index_task = int(input("Введите список по номеру для удаления задачи:\n"))
     tasks.remove(tasks[index_task])
 
 
-def print_list_of_task(list_to_print):
+def print_list_of_task(list_to_print: list[str]):
     if list_to_print:
         for i, item in enumerate(list_to_print):
             print(f"[{i}]: {item}")
