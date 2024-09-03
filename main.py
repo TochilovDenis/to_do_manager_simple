@@ -8,9 +8,14 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     list_of_tasks.append(enter_task)
 
 
-def delete_task_from_list(tasks: list[str]) -> None:
+def delete_task_from_list(list_of_tasks: list[str]) -> None:
+    """
+    Delete task from list of tasks
+    :param list_of_tasks: list of tasks to delete from
+    :return: Nothing
+    """
     index_task = int(input("Введите список по номеру для удаления задачи:\n"))
-    tasks.remove(tasks[index_task])
+    list_of_tasks.remove(list_of_tasks[index_task])
 
 
 def print_list_of_task(list_to_print: list[str]) -> None:
