@@ -9,6 +9,7 @@ generate_num: list = [str(i) + '\n' for i in range(1, 50)]
 
 
 file = open('file.txt', 'w')
-for i in generate_num:
-    file.write(i)
+# for i in generate_num:
+#     file.write(i)
+file.writelines(generate_num)
 file.close()
