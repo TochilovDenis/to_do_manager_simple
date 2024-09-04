@@ -14,8 +14,24 @@ def delete_task_from_list(list_of_tasks: list[str]) -> None:
     :param list_of_tasks: list of tasks to delete from
     :return: Nothing
     """
-    index_task = int(input("Введите список по номеру для удаления задачи:\n"))
-    list_of_tasks.remove(list_of_tasks[index_task])
+    # Проверяем если список задач пуст
+    if not list_of_tasks:
+        print("Список пуст!")
+        return
+
+    index = input("Введите список по номеру для удаления задачи:\n")
+    # Проверяем является ли индекс вообще числом
+    if index.isalnum():
+        print("Ошибка | Нужно было ввести целое число")
+        return
+    # Превращаем из str в int
+    index = int(index)
+    # Проверяем попадает ли индекс в диапазон количества элементов
+    if not 0 <= index < len(list_of_tasks):
+        print("Ошибка | Вы ввели неправильное число")
+        return
+
+    list_of_tasks.remove(list_of_tasks[index])
 
 
 def print_list_of_task(list_to_print: list[str]) -> None:
