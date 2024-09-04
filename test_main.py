@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from main import print_list_of_task, add_task_to_list
+from main import print_list_of_task, add_task_to_list, delete_task_from_list
 
 def test_print_list_of_task_empty(capsys):
     tasks = []
@@ -23,3 +23,10 @@ def test_add_task_to_list(mock_input):
     tasks = []
     add_task_to_list(tasks)
     assert tasks[0] == 'task-01'
+
+
+def test_delete_task_from_list_empty(capsys):
+    tasks = []
+    delete_task_from_list(tasks)
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "Список пуст!"
