@@ -1,6 +1,5 @@
 # Импортируем функцию choice из модуля random для случайного выбора элементов
 from random import choice, seed
-from files import write_to_file
 
 # для записи в файл
 FILENAME = 'names.txt'
@@ -44,19 +43,18 @@ def generate_name(surnames: list[str],
     return full_surname, chosen_name, full_patronymic
 
 
+def formats_string(names: tuple[str, str, str]) -> str:
+    return ' '.join(names) + '\n'
+
 def main() -> None:
     """
     Основная функция, которая генерирует и выводит 10 случайных имен.
     """
     seed()
-    names = []
-    for _ in range(10):
-        surname, name, patronymic = generate_name(SURNAMES, MALE_NAMES, FEMALE_NAMES, PATRONYMIC, choice(GENDERS))
-        full_name = f"{surname} {name} {patronymic}"
-        names.append(full_name)
-
-    # Записываем все сгенерированные имена в файл
-    write_to_file(names, FILENAME)
+    with open(FILENAME, 'w', encoding='utf-8') as file:
+        for _ in range(10):
+            names = generate_name(SURNAMES, MALE_NAMES, FEMALE_NAMES, PATRONYMIC, choice(GENDERS))
+            file.write(formats_string(names))
 
 if __name__ == '__main__':
     main()
