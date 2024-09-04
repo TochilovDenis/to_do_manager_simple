@@ -7,7 +7,7 @@ generate_num: list = [str(i) + '\n' for i in range(1, 50)]
 # for i in range(50):
 #     generate_num.append(str(i) + '\n')
 
-
+# записывает в файл
 file = open('file.txt', 'w')
 # for i in generate_num:
 #     file.write(i)
