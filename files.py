@@ -1,29 +1,50 @@
-# Создаем список форматированных строк чисел от 1 до 49
-# Используем списковое включение для компактного создания списка
-# где внутри [этого кода это компрехенсия список]
-generate_num: list = [str(i) + '\n' for i in range(1, 50)]
+FILENAME = 'file.txt'
 
-# generate_num: list = []
-# for i in range(50):
-#     generate_num.append(str(i) + '\n')
+def generate_list() -> list[str]:
+    """
+    Функция для создания списка строк из целочисленного диапазона от 0 до 50
+    :return: a list of strings [компрехенсия список]
+    """
+    return [str(i) + '\n' for i in range(1, 50)]
 
-# записывает содержимое в файл
-with open('file.txt', 'w') as file:
-    file.writelines(generate_num)
+def write_to_file(list_to_write: list[str], filename: str) -> None:
+    """
+    Функция для записи списка строк в файл с именем filename
+    :param list_to_write:  список строк для записи в файл
+    :param filename: в какой файл записывать список
+    :return: nothing
+    """
+    with open(filename, 'w') as file:
+        file.writelines(list_to_write)
 
-# Чтение всего содержимого файла
+def read_from_file(filename: str) -> list[str]:
+    """
+    Функция для чтения списка строк из файла с именем filename
+    :param filename: имя файла для чтения
+    :return: list of strings
+    """
+    with open(filename, 'r') as file:
+        result = file.readlines()
+    return result
 
-# Используем read() для чтения всех строк в одну переменную
-with open('file.txt', 'r') as file:
-    print(file.read())
+def print_list(list_to_print: list[str]) -> None:
+    """
+    Функция для печати списка строк
+    :param list_to_print: список для печати
+    :return: nothing
+    """
+    for el in list_to_print:
+        print(el, end='')
 
-# Чтение первой строки файла
-# Используем readline() для чтения только первой строки
-with open('file.txt', 'r') as file:
-    print(file.readline())
+def main() -> None:
+    """
+    Основная функция
+    :return: nothing
+    """
+    l: list[str] = generate_list()
+    write_to_file(l, FILENAME)
+    new_list = read_from_file(FILENAME)
+    print_list(new_list)
 
-
-# Чтение всего содержимого файла как списка строк
-# Используем readlines() для получения списка всех строк
-with open('file.txt', 'r') as file:
-    print(file.readlines())
+if __name__ == '__main__':
+    main()
