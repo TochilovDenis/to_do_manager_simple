@@ -44,6 +44,12 @@ def generate_name(surnames: list[str],
 
 
 def formats_string(names: tuple[str, str, str]) -> str:
+    """
+    Принимает кортеж строк и форматирует его в одну строку,
+    разделенную пробелами и заканчивающуюся символом \n
+    :param names:
+    :return:
+    """
     return ' '.join(names) + '\n'
 
 def main() -> None:
