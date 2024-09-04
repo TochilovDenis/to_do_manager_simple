@@ -30,3 +30,11 @@ def test_delete_task_from_list_empty(capsys):
     delete_task_from_list(tasks)
     captured = capsys.readouterr()
     assert captured.out.strip() == "Список пуст!"
+
+
+@patch('builtins.input')
+def test__delete_task_from_list(mock_input):
+    mock_input.return_value = '0'
+    tasks: list[str] = ['task-01']
+    delete_task_from_list(tasks)
+    assert len(tasks) == 0
