@@ -21,7 +21,7 @@ def delete_task_from_list(list_of_tasks: list[str]) -> None:
 
     index = input("Введите список по номеру для удаления задачи:\n")
     # Проверяем является ли индекс вообще числом
-    if index.isalnum():
+    if not index.isalnum():
         print("Ошибка | Нужно было ввести целое число")
         return
     # Превращаем из str в int
