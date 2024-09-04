@@ -7,6 +7,8 @@ def generate_list() -> list[str]:
     """
     return [str(i) + '\n' for i in range(1, 50)]
 
+
+
 def write_to_file(list_to_write: list[str], filename: str) -> None:
     """
     Функция для записи списка строк в файл с именем filename
@@ -14,8 +16,8 @@ def write_to_file(list_to_write: list[str], filename: str) -> None:
     :param filename: в какой файл записывать список
     :return: nothing
     """
-    with open(filename, 'w') as file:
-        file.writelines(list_to_write)
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.writelines('\n'.join(list_to_write))
 
 def read_from_file(filename: str) -> list[str]:
     """
