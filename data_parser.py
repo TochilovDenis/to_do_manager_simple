@@ -60,6 +60,13 @@ def write_names(filename: str) -> None:
             file.write(formats_string(names))
 
 
+def read_names(filename: str) -> None:
+    with open(filename, 'r', encoding='utf-8') as file:
+        read_names = file.readlines()
+        print(''.join(read_names))
+        print(f"Количество сохраненных строк: {len(read_names)}")
+
+
 def main() -> None:
     """
     Основная функция, которая генерирует и выводит 10 случайных имен.
@@ -67,11 +74,8 @@ def main() -> None:
     seed()
 
     write_names(FILENAME)
+    read_names(FILENAME)
 
-    with open(FILENAME, 'r', encoding='utf-8') as file:
-        read_names = file.readlines()
-        print(''.join(read_names))
-        print(f"Количество сохраненных строк: {len(read_names)}")
 
 if __name__ == '__main__':
     main()
