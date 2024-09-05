@@ -52,16 +52,21 @@ def formats_string(names: tuple[str, str, str]) -> str:
     """
     return ' '.join(names) + '\n'
 
+
+def write_names(filename: str) -> None:
+    with open(filename, 'w', encoding='utf-8') as file:
+        for _ in range(10):
+            names = generate_name(SURNAMES, MALE_NAMES, FEMALE_NAMES, PATRONYMIC, choice(GENDERS))
+            file.write(formats_string(names))
+
+
 def main() -> None:
     """
     Основная функция, которая генерирует и выводит 10 случайных имен.
     """
     seed()
-    with open(FILENAME, 'w', encoding='utf-8') as file:
-        for _ in range(10):
-            names = generate_name(SURNAMES, MALE_NAMES, FEMALE_NAMES, PATRONYMIC, choice(GENDERS))
-            file.write(formats_string(names))
 
+    write_names(FILENAME)
 
     with open(FILENAME, 'r', encoding='utf-8') as file:
         read_names = file.readlines()
