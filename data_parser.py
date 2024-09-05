@@ -67,18 +67,26 @@ def read_names(filename: str) -> None:
         print(f"Количество сохраненных строк: {len(read_names)}")
 
 
+def read_names_index(filename: str, index: int) -> None:
+    with open(filename, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+        for l in lines:
+            if 0 <= index < len(l.split()):
+                print(l.split()[index])
+            else:
+                print("Unknown")
+                break
+
+
 def main() -> None:
     """
     Основная функция, которая генерирует и выводит 10 случайных имен.
     """
     seed()
 
-    write_names(FILENAME)
-    read_names(FILENAME)
-
+    #write_names(FILENAME)
+    #read_names(FILENAME)
+    read_names_index(FILENAME, 1)
 
 if __name__ == '__main__':
     main()
-
-
-# Задача 2024.08.07.08
