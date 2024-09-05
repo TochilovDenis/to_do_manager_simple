@@ -50,7 +50,7 @@ def formats_string(names: tuple[str, str, str]) -> str:
     :param names:
     :return:
     """
-    return ' '.join(names) + '\n'
+    return ':'.join(names) + '\n'
 
 
 def write_names(filename: str) -> None:
@@ -71,8 +71,8 @@ def read_names_index(filename: str, index: int) -> None:
     with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
         for l in lines:
-            if 0 <= index < len(l.split()):
-                print(l.split()[index])
+            if 0 <= index < len(l.split(":")):
+                print(l.split(":")[index])
             else:
                 print("Unknown")
                 break
@@ -84,8 +84,8 @@ def main() -> None:
     """
     seed()
 
-    #write_names(FILENAME)
-    #read_names(FILENAME)
+    write_names(FILENAME)
+    read_names(FILENAME)
     read_names_index(FILENAME, 1)
 
 if __name__ == '__main__':
