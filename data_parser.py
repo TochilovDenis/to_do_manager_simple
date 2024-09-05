@@ -62,5 +62,14 @@ def main() -> None:
             names = generate_name(SURNAMES, MALE_NAMES, FEMALE_NAMES, PATRONYMIC, choice(GENDERS))
             file.write(formats_string(names))
 
+
+    with open(FILENAME, 'r', encoding='utf-8') as file:
+        read_names = file.readlines()
+        print(''.join(read_names))
+        print(f"Количество сохраненных строк: {len(read_names)}")
+
 if __name__ == '__main__':
     main()
+
+
+# Задача 2024.08.07.08
