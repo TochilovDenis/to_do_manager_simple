@@ -1,3 +1,6 @@
+import os
+
+
 def write_to_file(list_to_write: list[str], filename: str) -> None:
     """
     Функция для записи списка строк в файл с именем filename
@@ -32,5 +35,7 @@ def save_tasks_file(list_of_tasks: list[str],filename:str ) -> None:
 
 
 def read_tasks_file(filename: str) -> list[str]:
+    if not os.path.exists(filename):
+        return []
     with open(filename, 'r', encoding='utf-8') as file:
         return [task.strip() for task in file.readlines()]
