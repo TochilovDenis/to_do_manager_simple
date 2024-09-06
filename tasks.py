@@ -1,6 +1,3 @@
-from files import write_to_file
-FILE_PATH = "tasks.txt"
-
 def add_task_to_list(list_of_tasks: list[str]) -> None:
     """
     Добавить задачу в список задач
@@ -50,8 +47,7 @@ def print_list_of_task(list_to_print: list[str]) -> None:
         print("Список задач пуст")
 
 
-def main() -> None:
-    tasks = []
+def tasks_process(tasks) -> None:
     while True:
         print("1. Добавить задачу\n"
               "2. Удалить задачу\n"
@@ -60,7 +56,6 @@ def main() -> None:
         enter = input("Введите ваш выбор: ")
         if enter == '4':
             print("Программа завершена.")
-            write_to_file(tasks, FILE_PATH)
             break
         elif enter == '1':
             add_task_to_list(tasks)
@@ -70,7 +65,3 @@ def main() -> None:
             print_list_of_task(tasks)
         else:
             print("Вы вели что-то не так. Еще разок.")
-
-
-if __name__ == '__main__':
-    main()
