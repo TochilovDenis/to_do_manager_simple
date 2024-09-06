@@ -35,6 +35,18 @@ def save_tasks_file(list_of_tasks: list[str],filename:str ) -> None:
 
 
 def read_tasks_file(filename: str) -> list[str]:
+    """
+    Читает список задач из текстового файла и возвращает его как список строк.
+
+    Проверяет наличие файла перед чтением. Если файл не существует,
+    возвращает пустой список.
+
+    :param filename: Имя файла, из которого нужно прочитать задачи.
+                     Путь к файлу должен быть абсолютным или относительным.
+    :return: Список строковых задач, считанных из файла.
+             Если файл не существует, возвращается пустой список.
+    :raises FileNotFoundError: Если указанный файл не существует.
+    """
     if not os.path.exists(filename):
         return []
     with open(filename, 'r', encoding='utf-8') as file:
