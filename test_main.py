@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from main import print_list_of_task, add_task_to_list, delete_task_from_list
+from tasks import print_list_of_task, add_task_to_list, delete_task_from_list
 
 def test_print_list_of_task_empty(capsys):
     tasks = []
