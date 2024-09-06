@@ -8,6 +8,7 @@ def write_to_file(list_to_write: list[str], filename: str) -> None:
     with open(filename, 'w', encoding='utf-8') as file:
         file.writelines('\n'.join(list_to_write))
 
+
 def read_from_file(filename: str) -> list[str]:
     """
     Функция для чтения списка строк из файла с именем filename
@@ -28,3 +29,8 @@ def save_tasks_file(list_of_tasks: list[str],filename:str ) -> None:
     """
     with open(filename, 'w', encoding='utf-8') as file:
         file.write('\n'.join(list_of_tasks))
+
+
+def read_tasks_file(filename: str) -> list[str]:
+    with open(filename, 'r', encoding='utf-8') as file:
+        return [task.strip() for task in file.readlines()]
