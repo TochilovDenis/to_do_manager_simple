@@ -5,7 +5,9 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     :return: Nothing
     """
     enter_task = input("Введите описание задачи:\n")
-    list_of_tasks.append(enter_task)
+    enter_data = input("Введите срок задачи:\n")
+    enter = f"{enter_task}:{enter_data}"
+    list_of_tasks.append(enter)
 
 
 def delete_task_from_list(list_of_tasks: list[str]) -> None:
@@ -42,7 +44,8 @@ def print_list_of_task(list_to_print: list[str]) -> None:
     """
     if list_to_print:
         for i, item in enumerate(list_to_print):
-            print(f"[{i}]: {item}")
+            enter_task, enter_data = item.split(":")
+            print(f"[{i}]: Задача: {enter_task} | Срок: {enter_data}")
     else:
         print("Список задач пуст")
 
