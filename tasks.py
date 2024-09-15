@@ -10,14 +10,22 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     enter_task = input("Введите описание задачи:\n")
     attempts = 5
     for _ in range(attempts):
-        enter_data = input(f"Введите срок задачи {FORMATS}:\n")
-        if is_date_any(enter_data):
-            enter = f"{enter_task}:{enter_data}"
-            list_of_tasks.append(enter)
-            print("OK")
+        try:
+            enter_data = input(f"Введите срок задачи {FORMATS}:\n")
+
+            if not enter_task.strip():
+                raise ValueError("Пустое описание задачи!")
+
+            if is_date_any(enter_data):
+                enter = f"{enter_task}:{enter_data}"
+                list_of_tasks.append(enter)
+                print("OK")
+                break
+            else:
+                print("Error format dat!!!")
+        except ValueError as ve:
+            print(f"Ошибка: {str(ve)}")
             break
-        else:
-            print("Error format dat!!!")
     else:
         print("Вы исчерпали все возможные попытки. Задача не будет добавлена.")
 
