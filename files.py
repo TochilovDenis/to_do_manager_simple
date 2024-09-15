@@ -51,3 +51,13 @@ def read_tasks_file(filename: str) -> list[str]:
         return []
     with open(filename, 'r', encoding='utf-8') as file:
         return [task.strip() for task in file.readlines()]
+
+
+
+def read_users_file(filename:str) -> dict[str, str]:
+    result: dict[str, str] = {}
+    if not os.path.exists(filename):
+        return result
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        return {line.strip()[0] : line.strip()[1] for line in file.readlines()}
