@@ -1,3 +1,6 @@
+from date_parser import is_date_any, FORMATS
+
+
 def add_task_to_list(list_of_tasks: list[str]) -> None:
     """
     Добавить задачу в список задач
@@ -5,10 +8,13 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     :return: Nothing
     """
     enter_task = input("Введите описание задачи:\n")
-    enter_data = input("Введите срок задачи:\n")
-    enter = f"{enter_task}:{enter_data}"
-    list_of_tasks.append(enter)
-
+    enter_data = input(f"Введите срок задачи {FORMATS}:\n")
+    if is_date_any(enter_data):
+        enter = f"{enter_task}:{enter_data}"
+        list_of_tasks.append(enter)
+        print("OK")
+    else:
+        print("Error format date!")
 
 def delete_task_from_list(list_of_tasks: list[str]) -> None:
     """
