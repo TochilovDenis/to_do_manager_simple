@@ -19,6 +19,11 @@ def is_date_by_format(date: str, format_date: str) -> bool:
 
 
 def is_date(date: str) -> bool:
+    """
+    Функция для проверки, является ли дата строкой в соответствии со списком один из ФОРМАТОВ
+    :param date: строка, представляющая дату
+    :return: True - дата is_date_by одного формата из ФОРМАТОВ.
+    """
     for format_date in FORMATS:
         if is_date_by_format(date, format_date):
             return True
