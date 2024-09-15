@@ -1,6 +1,9 @@
+from files  import read_users_file
+
 def get_user(users_filename: str) -> None:
     # прочитать файл с пользователями
     # если его нет, то создать
+    users =  read_users_file(users_filename)
     # запросить имя пользователя
     # если имя есть - запросить пароль
     #  если пароль верный - вернуть имя
