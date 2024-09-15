@@ -60,4 +60,4 @@ def read_users_file(filename:str) -> dict[str, str]:
         return result
 
     with open(filename, 'r', encoding='utf-8') as file:
-        return {line.strip()[0] : line.strip()[1] for line in file.readlines()}
+        return {line.split(":")[0].strip() : line.split(":")[1].strip() for line in file.readlines()}
