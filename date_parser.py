@@ -31,4 +31,5 @@ def is_date(date: str) -> bool:
 
 
 def is_date_any(date: str) -> bool:
+    """Простой вариант функции is_date_any"""
     return any([is_date_by_format(date, format_date) for format_date in FORMATS])
