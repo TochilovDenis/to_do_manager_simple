@@ -8,13 +8,19 @@ def add_task_to_list(list_of_tasks: list[str]) -> None:
     :return: Nothing
     """
     enter_task = input("Введите описание задачи:\n")
-    enter_data = input(f"Введите срок задачи {FORMATS}:\n")
-    if is_date_any(enter_data):
-        enter = f"{enter_task}:{enter_data}"
-        list_of_tasks.append(enter)
-        print("OK")
+    attempts = 5
+    for _ in range(attempts):
+        enter_data = input(f"Введите срок задачи {FORMATS}:\n")
+        if is_date_any(enter_data):
+            enter = f"{enter_task}:{enter_data}"
+            list_of_tasks.append(enter)
+            print("OK")
+            break
+        else:
+            print("Error format dat!!!")
     else:
-        print("Error format date!")
+        print("Вы исчерпали все возможные попытки. Задача не будет добавлена.")
+
 
 def delete_task_from_list(list_of_tasks: list[str]) -> None:
     """
