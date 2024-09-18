@@ -1,4 +1,4 @@
-from files  import read_users_file
+from files  import read_users_file, add_users_file
 from errors import NoMoreAttempts
 
 def get_user(users_filename: str) -> str:
@@ -34,6 +34,7 @@ def get_user(users_filename: str) -> str:
         password_again = input("Введите пароль еще раз: ")
         if password == password_again:
             users[user] = password
+            add_users_file(users_filename, user, password)
             break
         print(f"Введённые пароли не совпадают, попробуйте ещё раз")
     else:

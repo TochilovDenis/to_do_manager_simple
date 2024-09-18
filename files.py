@@ -61,3 +61,8 @@ def read_users_file(filename:str) -> dict[str, str]:
 
     with open(filename, 'r', encoding='utf-8') as file:
         return {line.split(":")[0].strip() : line.split(":")[1].strip() for line in file.readlines()}
+
+
+def add_users_file(filename: str, user: str, password: str) -> None:
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(f"{user}: {password}\n")
