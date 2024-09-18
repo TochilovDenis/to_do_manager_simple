@@ -1,5 +1,5 @@
 from files  import read_users_file, add_users_file
-from errors import NoMoreAttempts
+from errors import NoMoreAttempts, RefuseToCreateNewUser
 
 def get_user(users_filename: str) -> str:
     # прочитать файл с пользователями
@@ -36,6 +36,6 @@ def get_user(users_filename: str) -> str:
             users[user] = password
             add_users_file(users_filename, user, password)
             break
-        print(f"Введённые пароли не совпадают, попробуйте ещё раз")
+        raise RefuseToCreateNewUser(f"Введённые пароли не совпадают, попробуйте ещё раз")
     else:
         raise NoMoreAttempts("Больше никаких попыток. До свидания.")
