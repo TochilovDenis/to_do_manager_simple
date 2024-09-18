@@ -26,4 +26,15 @@ def get_user(users_filename: str) -> str:
     choice = input("Нет такого пользователя. Создаем? [Да/Нет]\n_:")
     if choice == 'Нет':
         print("Нельзя продолжать не создав этого пользователя. До свидания.")
+
     # если нет такого имени - то создать - записать имя и новый пароль
+    attempts = 5
+    for _ in range(attempts):
+        password = input("Введите пароль: ")
+        password_again = input("Введите пароль еще раз: ")
+        if password == password_again:
+            users[user] = password
+            break
+        print(f"Введённые пароли не совпадают, попробуйте ещё раз")
+    else:
+        raise NoMoreAttempts("Больше никаких попыток. До свидания.")
