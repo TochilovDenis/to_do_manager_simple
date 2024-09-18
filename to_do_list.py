@@ -1,7 +1,11 @@
 from files import read_tasks_file,save_tasks_file
+from get_user import get_user
 from tasks import tasks_process
 
+
 FILENAME = "tasks.txt"
+FILENAME_USER = 'user.txt'
+
 
 def main() -> None:
     """
@@ -11,6 +15,7 @@ def main() -> None:
     # Объявляем список задач
     tasks = read_tasks_file(FILENAME)
     # Главный цикл
+    user = get_user(FILENAME_USER)
     try:
         tasks_process(tasks)
     finally:
