@@ -64,5 +64,5 @@ def read_users_file(filename:str) -> dict[str, str]:
 
 
 def add_users_file(filename: str, user: str, password: str) -> None:
-    with open(filename, 'w', encoding='utf-8') as file:
+    with open(filename, 'a', encoding='utf-8') as file:
         file.write(f"{user}: {password}\n")
