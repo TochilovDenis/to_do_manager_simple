@@ -1,4 +1,5 @@
 from files  import read_users_file
+from errors import NoMoreAttempts
 
 def get_user(users_filename: str) -> str:
     # прочитать файл с пользователями
@@ -19,5 +20,5 @@ def get_user(users_filename: str) -> str:
                 print("Неверный пароль. Попробуем ещё раз.")
         else:
             #  или исчерпать количество попыток
-            print("Больше никаких попыток. До свидания.")
+            raise NoMoreAttempts("Больше никаких попыток. До свидания.")
     # если нет такого имени - то создать - записать имя и новый пароль
