@@ -25,7 +25,7 @@ def get_user(users_filename: str) -> str:
 
     choice = input("Нет такого пользователя. Создаем? [Да/Нет]\n_:")
     if choice == 'Нет':
-        print("Нельзя продолжать не создав этого пользователя. До свидания.")
+        raise RefuseToCreateNewUser("Нельзя продолжать не создав этого пользователя. До свидания.")
 
     # если нет такого имени - то создать - записать имя и новый пароль
     attempts = 5
@@ -36,6 +36,6 @@ def get_user(users_filename: str) -> str:
             users[user] = password
             add_users_file(users_filename, user, password)
             break
-        raise RefuseToCreateNewUser(f"Введённые пароли не совпадают, попробуйте ещё раз")
+        print(f"Введённые пароли не совпадают, попробуйте ещё раз")
     else:
         raise NoMoreAttempts("Больше никаких попыток. До свидания.")
