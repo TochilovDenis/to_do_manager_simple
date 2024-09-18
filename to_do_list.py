@@ -1,5 +1,5 @@
 from errors import NoMoreAttempts, RefuseToCreateNewUser
-from files import read_tasks_file,save_tasks_file
+from files import read_tasks_file, save_tasks_file
 from get_user import get_user
 from tasks import tasks_process
 
@@ -27,4 +27,7 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('\nexit')
