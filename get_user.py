@@ -1,5 +1,9 @@
 from files  import read_users_file, add_users_file
 from errors import NoMoreAttempts, RefuseToCreateNewUser
+from hashlib import md5
+
+def hashed(s:str) -> str:
+    return md5(s.encode()).hexdigest()
 
 def get_user(users_filename: str) -> str:
     # прочитать файл с пользователями
