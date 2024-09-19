@@ -16,7 +16,7 @@ def get_user(users_filename: str) -> str:
         for _ in range(attempts):
             # если имя есть - запросить пароль
             password = input("Введите пароль: ")
-            if password == users[user]:
+            if hashed(password) == users[user]:
                 # если пароль верный - вернуть имя
                 return user
             else:
@@ -37,8 +37,8 @@ def get_user(users_filename: str) -> str:
         password = input("Введите пароль: ")
         password_again = input("Введите пароль еще раз: ")
         if password == password_again:
-            users[user] = password
-            add_users_file(users_filename, user, password)
+            users[user] = hashed(password)
+            add_users_file(users_filename, user, hashed(password))
             break
         print(f"Введённые пароли не совпадают, попробуйте ещё раз")
     else:
